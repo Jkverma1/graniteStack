@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      GraniteStack Blog - Exploring App Server Costs and Low-Cost App
+      Development Strategies
+    </title>
+    <meta
+      name="description"
+      content="Unveil a wealth of app development insights through GraniteStack's informative blog"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://gstack-backend-production.s3.amazonaws.com/cms/asset/9d107094-ebec-4abd-817a-eb6bacd96360.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Poppins:wght@500&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P2NV7WX");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P2NV7WX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="output"></div>
+    <script type="text/x-handlebars-template" id="template">
+      <!-- navbar -->
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="/">
+            <img src="{{Navbar.Logo}}" alt="" />
+            {{Navbar.Navbrand}}
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              {{#each Navbar.NavLinks}}
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id={{state}}
+                    aria-current="page"
+                    href={{href}}
+                  >{{name}}</a>
+                </li>
+              {{/each}}
+              <li class="nav-item showEvents">
+                <a class="nav-link">Events</a>
+                <div class="position-absolute z-2 bg-white submenu">
+                  <ul class="nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/unleash-conference/">The
+                        Unleash Conference</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <button
+              class="btn signup-btn"
+              onClick="location.href='/index.html#contactForm'"
+            >
+              {{Navbar.LogInButton}}
+            </button>
+          </div>
+        </nav>
+      </header>
+      <!-- navbar -->
+      <!-- Blog section -->
+      <div class="banner default-section">
+        <h1 class="text-center">
+          {{Title}}
+          <span class="blue-text">
+            {{BlueTitle}}
+          </span>
+        </h1>
+      </div>
+      <section class="col-auto default-section pt-0 pb-0">
+        <img src="" alt="" />
+        <div class="row">
+          <div class="col-3 d-none d-lg-block pt-4">
+            <div class="blogContent overflow-y-scroll">
+              <h4 class="blue-text pb-4">Blog Content</h4>
+              <ul><a href="#Introduction">
+                  <li class="pt-0 active">Introduction</li>
+                </a>
+                {{#each Content}}
+                  {{#if Title}}
+                    <a href={{setHref Title}}>
+                      <li class="pt-0">{{Title}}</li>
+                    </a>
+                  {{/if}}
+                  {{#each Content}}
+                    <a href="{{setHref Title}}">
+                      <li class="pt-0">{{Title}}</li>
+                    </a>
+                  {{/each}}
+                {{/each}}
+              </ul>
+            </div>
+
+          </div>
+          <div id="Introduction" class="col-lg-9">
+
+            <h1>
+              Introduction
+            </h1>
+            {{#each Paragraph}}
+              <p class="default-p pt-4">
+                {{this}}
+              </p>
+            {{/each}}
+            {{#each Content}}
+              {{#each Title}}
+                <h2 id={{setID this}} class="pt-4">
+                  {{this}}
+                </h2>
+              {{/each}}
+              {{#each Paragraph}}
+                <p class="default-p pt-4">
+                  {{this}}
+                </p>
+              {{/each}}
+              {{#each Content}}
+                {{#each Title}}
+                  <h3 id={{setID this}} class="pt-4">
+                    {{this}}
+                  </h3>
+                {{/each}}
+                {{#each Paragraph}}
+                  <p class="default-p pt-4">
+                    {{this}}
+                  </p>
+                {{/each}}
+              {{/each}}
+            {{/each}}
+          </div>
+        </div>
+
+      </section>
+      <!-- Blog section -->
+    </script>
+
+    <!-- footer -->
+    <footer class="w-100">
+      <div class="row justify-content-between">
+        <div class="col-lg footer-head">
+          <a href="/"
+            ><img
+              src="https://gstack-backend-production.s3.amazonaws.com/cms/asset/64598a64-2bdd-401e-91ad-13ff516e38bc.png"
+              alt=""
+          /></a>
+          <p class="pt-3">Build, launch, and scale your SaaS idea today!</p>
+        </div>
+        <div class="col-lg text-center footer-links row col-md-6">
+          <ul class="col">
+            <li><a href="/index.html#features">Features</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
+            <li><a href="/Academy/">Academy</a></li>
+          </ul>
+          <ul class="col">
+            <li><a href="/partners/">Partners</a></li>
+            <li><a href="/about-us/">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact col-lg col-md-6">
+          <div class="float-md-end">
+            <p>MELBOURNE, AUSTRALIA SYDNEY, AUSTRALIA</p>
+            <a href="mailto:support@granitestack.com"
+              >support@granitestack.com</a
+            >
+          </div>
+        </div>
+      </div>
+      <h4 class="copyright">© 2023 All Rights Reserved, GraniteStack®</h4>
+      <div class="copyright-links text-center">
+        <a href="/privacy-policy/">Privacy Policy</a> |
+        <a href="/user-licence/">Terms</a>
+      </div>
+    </footer>
+    <!-- footer -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="js/handlebar.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

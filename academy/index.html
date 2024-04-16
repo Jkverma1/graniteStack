@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GraniteStack Blog - App Development Insights Unveiled</title>
+    <meta
+      name="description"
+      content="Unveil a wealth of app development insights through GraniteStack's informative blog"
+    />
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-WZDW3GX"></script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://gstack-backend-production.s3.amazonaws.com/cms/asset/9d107094-ebec-4abd-817a-eb6bacd96360.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Poppins:wght@500&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+      integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+      integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P2NV7WX");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P2NV7WX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="output"></div>
+    <script type="text/x-handlebars-template" id="template">
+      <!-- navbar -->
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="/">
+            <img src="{{Navbar.Logo}}" alt="" />
+            {{Navbar.Navbrand}}
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              {{#each Navbar.NavLinks}}
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id={{state}}
+                    aria-current="page"
+                    href={{href}}
+                  >{{name}}</a>
+                </li>
+              {{/each}}
+              <li class="nav-item showEvents">
+                <a class="nav-link">Events</a>
+                <div class="position-absolute z-2 bg-white submenu">
+                  <ul class="nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/unleash-conference/">The
+                        Unleash Conference</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <button
+              class="btn signup-btn"
+              onClick="location.href='/index.html#contactForm'"
+            >
+              {{Navbar.LogInButton}}
+            </button>
+          </div>
+        </nav>
+      </header>
+      <!-- navbar -->
+      <div class="default-section default-banner">
+        <div class="About-header">
+          <h2>
+            {{BlogContent.Title}}
+            <span class="blue-text">{{BlogContent.BlueTitle}}</span>
+          </h2>
+        </div>
+        <p class="default-p pt-4">
+          {{BlogContent.Paragraph}}
+        </p>
+      </div>
+      <!-- banner -->
+      <!-- subscription letter -->
+      <div
+        class="default-section row align-items-center justify-content-center justify-content-lg-between subscription-letter column-gap-0 row-gap-2"
+      >
+        <h4 class="col-auto text-center text-lg-start text-black p-0">
+          {{BlogContent.FormTitle}}
+        </h4>
+        <div id="submit-overlay">
+          <div class="submit-popup">
+            <div>
+              <img
+                src="https://gstack-backend-production.s3.amazonaws.com/cms/asset/14f10751-a61a-4e97-a818-19149ec32ba8.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <h5>Form Submitted</h5>
+              <p>Our team will get in touch with you shortly</p>
+            </div>
+
+            <button class="mt-4" onclick="removePopup()">Ok</button>
+          </div>
+        </div>
+        <form
+          class="col-lg-6 row h-50"
+          action="javascript:void()"
+          onsubmit="return onSubmit(this)"
+        >
+          <input
+            class="col border-0 bg-white subscriber-input"
+            type="text"
+            placeholder="Email"
+          />
+          <button
+            class="subscribe-btn col-auto"
+            type="submit"
+          >{{BlogContent.FormButton}}</button>
+        </form>
+      </div>
+      <!-- subscription letter -->
+
+      <!-- About section -->
+      <section class="pb-5">
+        <div class="default-section odd-blog-page row">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>
+              Most
+              <span class="blue-text">Recent Blogs</span>
+            </h2>
+            <button class="view-button">View All</button>
+          </div>
+          <a class="col-lg-8" href="/academy/blog/index.html?id=3">
+            <div class="card mt-4">
+              <div>
+                <img
+                  class="card-img-top"
+                  src="https://gstack-backend-production.s3.amazonaws.com/cms/asset/8915bea8-1831-46c2-a201-5bd592189128.png"
+                  alt="Code vs no Code"
+                />
+                <span class="default-p update-views mt-2">
+                  <span class="font-600 text-brand">READ MORE</span>
+                </span>
+              </div>
+              <div class="card-body">
+                <h3>
+                  Mastering MVP Development: A Comprehensive Startup Guide to
+                  Minimum Viable Product
+                </h3>
+                <p class="default-p pt-2">
+                  Startups often grapple with tight budgets and deadlines when
+                  creating new products without established user bases,
+                  feedback, or feature requests...
+                </p>
+              </div>
+            </div>
+          </a>
+          <div class="col-lg-4 row p-0">
+            <a class="col-lg-12 col-sm-6" href="/academy/blog/index.html?id=5">
+              <div class="card mt-4">
+                <div>
+                  <img
+                    class="card-img-top"
+                    src="https://gstack-backend-production.s3.amazonaws.com/cms/asset/af8b25cf-11f8-46b8-ba7d-fcf6bf6461da.png"
+                    alt="Code vs no Code"
+                  />
+                  <span class="default-p update-views mt-2">
+                    <span class="font-600 text-brand">READ MORE</span>
+                  </span>
+                </div>
+                <div class="card-body">
+                  <h4 class="p-0">
+                    Step-by-Step Guide: Creating Your Cloud-Based SaaS
+                    Application
+                  </h4>
+                </div>
+              </div>
+            </a>
+            <a class="col-lg-12 col-sm-6" href="/academy/blog/index.html?id=11">
+              <div class="card mt-sm-2">
+                <div>
+                  <img
+                    class="card-img-top"
+                    src="https://gstack-backend-production.s3.amazonaws.com/cms/asset/7f8e8f45-93ca-4777-b1f7-f76f3a5cb1c1.png"
+                    alt="Code vs no Code"
+                  />
+                  <span
+                    class="default-p update-views d-flex justify-content-between mt-2"
+                  >
+                    <span class="font-600 text-brand">READ MORE</span>
+                  </span>
+                </div>
+                <div class="card-body">
+                  <h4 class="p-0">
+                    Exploring App Server Costs and Low-Cost App Development
+                    Strategies
+                  </h4>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        {{#each BlogContent.Content}}
+          <div class="default-section pb-0 mb-0">
+            <h2 class="mb-0">{{Title}}</h2>
+          </div>
+          {{#each Content}}
+            <div class="default-section even-blog-page pb-0 mb-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <h3 class="font-600">{{Title}}</h3>
+                <button class="view-button">View All</button>
+              </div>
+              <div class="row mt-5">
+                {{#each Content}}
+                  <a class="col-lg-6 pe-4 pb-3" href={{Href}}>
+                    <div class="side-card row">
+                      <div class="col-5 overflow-hidden bg-white">
+                        <img
+                          class="card-img-top side-card-img"
+                          src={{Image}}
+                          alt="Code vs no Code"
+                        />
+                      </div>
+                      <div class="col-7">
+                        <h4 class="p-0 BlogHeading">
+                          {{Title}}
+                        </h4>
+                        <p class="default-p pt-2 BlogPara">
+                          {{Paragraph}}
+                        </p>
+                        <span
+                          class="default-p update-views d-flex justify-content-between mt-2"
+                        >
+                          <span class="font-600 text-brand">READ MORE</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                {{/each}}
+              </div>
+            </div>
+          {{/each}}
+        {{/each}}
+      </section>
+      <!-- About section -->
+    </script>
+    <!-- banner -->
+
+    <!-- footer -->
+    <footer class="w-100 mt-0">
+      <div class="row justify-content-between">
+        <div class="col-lg footer-head">
+          <a href="/"
+            ><img
+              src="https://gstack-backend-production.s3.amazonaws.com/cms/asset/64598a64-2bdd-401e-91ad-13ff516e38bc.png"
+              alt=""
+          /></a>
+          <p class="pt-3">Build, launch, and scale your SaaS idea today!</p>
+        </div>
+        <div class="col-lg text-center footer-links row col-md-6">
+          <ul class="col">
+            <li><a href="/index.html#features">Features</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
+            <li><a href="/academy/">Academy</a></li>
+          </ul>
+          <ul class="col">
+            <li><a href="/partners/">Partners</a></li>
+            <li><a href="/about-us/">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact col-lg col-md-6">
+          <div class="float-md-end">
+            <p>MELBOURNE, AUSTRALIA SYDNEY, AUSTRALIA</p>
+
+            <a href="mailto:support@granitestack.com"
+              >support@granitestack.com</a
+            >
+          </div>
+        </div>
+      </div>
+      <h4 class="copyright">© 2023 All Rights Reserved, GraniteStack®</h4>
+      <div class="copyright-links text-center">
+        <a href="/privacy-policy/">Privacy Policy</a> |
+        <a href="/user-licence/">Terms</a>
+      </div>
+    </footer>
+    <!-- footer -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="js/handlebar.js"></script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
